@@ -1,4 +1,5 @@
-Install the required packages listed in requirements.txt.Reproduction of the results in the single task setting can be obtained by executing
+Install the required packages listed in requirements.txt.
+Reproduction of the results in the single task setting can be obtained by executing
 
 <code>    python main.py </code> or
 
