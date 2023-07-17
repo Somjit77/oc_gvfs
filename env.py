@@ -40,6 +40,9 @@ class CollectObjects:
     def add_obstacle(self):
         self.obstacles = [(3*self.breadth//4+1, 3*self.length//4+1)]
 
+    def convertxytoij(self, xy):
+        return self.length - xy[1], xy[0] - 1
+
     def reset(self, random=False):
         self.state_space[:] = 'E'
         # Add Corridors
