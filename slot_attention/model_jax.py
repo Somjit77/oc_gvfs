@@ -1,4 +1,18 @@
-'''Code adapted from https://github.com/google-research/slot-attention-video'''
+# coding=utf-8
+# Copyright 2021 The Google Research Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """Slot Attention model for object discovery and set prediction."""
 import logging
 import haiku as hk
@@ -131,27 +145,27 @@ class SlotAttentionAutoEncoder(hk.Module):
         self.num_iterations = num_iterations
         self.key = key
         self.encoder_cnn = hk.Sequential([
-            hk.Conv2D(32, kernel_shape=5, padding="SAME"),
+            hk.Conv2D(32, kernel_shape=3, padding="SAME"),
             jax.nn.relu,
-            hk.Conv2D(32, kernel_shape=5, padding="SAME"),
+            hk.Conv2D(32, kernel_shape=3, padding="SAME"),
             jax.nn.relu,
-            hk.Conv2D(64, kernel_shape=5, padding="SAME"),
+            hk.Conv2D(64, kernel_shape=3, padding="SAME"),
             jax.nn.relu,
         ], name="encoder_cnn")
 
         self.decoder_initial_size = (8, 8)
         self.decoder_cnn = hk.Sequential([
             hk.Conv2DTranspose(
-                64, 5, stride=(2, 2), padding="SAME"),
+                64, 3, stride=(2, 2), padding="SAME"),
             jax.nn.relu,
             hk.Conv2DTranspose(
-                32, 5, stride=(2, 2), padding="SAME"),
+                32, 3, stride=(2, 2), padding="SAME"),
             jax.nn.relu,
+            # hk.Conv2DTranspose(
+            #     32, 3, stride=(2, 2), padding="SAME"),
+            # jax.nn.relu,
             hk.Conv2DTranspose(
-                32, 5, stride=(2, 2), padding="SAME"),
-            jax.nn.relu,
-            hk.Conv2DTranspose(
-                32, 5, stride=(1, 1), padding="SAME"),
+                32, 3, stride=(1, 1), padding="SAME"),
             jax.nn.relu,
             hk.Conv2DTranspose(
                 4, 3, stride=(1, 1), padding="SAME")
