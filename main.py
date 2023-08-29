@@ -18,8 +18,8 @@ import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--game", help='environment', default='CollectObjects')  # Environment Name
-parser.add_argument("--algorithm", help='algorithm', default='dis')  # dqn, gvf, hc_gvf, gvf_esp, hc_gvf_esp
-parser.add_argument("--version", help='version', default='19.0')
+parser.add_argument("--algorithm", help='algorithm', default='sa_esp')  # dqn, gvf, hc_gvf, gvf_esp, hc_gvf_esp, sa_esp, sa, dis, dis_esp
+parser.add_argument("--version", help='version', default='1.0')
 parser.add_argument("--runs", type=int, default=1, help="Number of Runs.")
 parser.add_argument("--level", type=int, default=0, help="Level in procgen")
 parser.add_argument("--train_episodes", type=int, default=5000, help="Number of train episodes.")
