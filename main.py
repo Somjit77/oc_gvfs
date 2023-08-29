@@ -11,7 +11,7 @@ import numpy as np
 import json, argparse
 from pathlib import Path
 from agent import ReplayBuffer, DQN
-from env import CollectObjects, MiniGrid, CoinRun, BigFish, Climber, StarPilot
+from env import CollectObjects, MiniGrid
 from slot_attention.train_slots import train as train_slots
 import utils
 import os
