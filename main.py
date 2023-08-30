@@ -28,7 +28,7 @@ parser.add_argument("--target_period",type=float, default=100, help="How often t
 parser.add_argument("--replay_capacity",type=int, default=100000, help="Capacity of the replay buffer.")
 parser.add_argument("--hidden_arch", type=int, default=[64, 32], help="Number of network hidden units.")
 parser.add_argument("--epsilon_begin",type=float, default=1., help="Initial epsilon-greedy exploration.")
-parser.add_argument("--epsilon_end",type=float, default=0.1, help="Final epsilon-greedy exploration.")
+parser.add_argument("--epsilon_end",type=float, default=0.001, help="Final epsilon-greedy exploration.")
 parser.add_argument("--epsilon_steps",type=int, default=0.5, help="portion of total episodes over which to anneal eps.")
 parser.add_argument("--discount_factor",type=float, default=0.99, help="Q-learning discount factor.")
 parser.add_argument("--learning_rate",type=float, default=0.0001, help="Optimizer learning rate.")
@@ -50,10 +50,10 @@ parser.add_argument("--sa_resolution", type=int, default=32, help='Resolution of
 parser.add_argument("--sa_num_slots", type=int, default=5, help="Number of slots in Slot Attention.")
 parser.add_argument("--sa_num_iterations", type=int, default=3, help="Number of attention iterations.")
 parser.add_argument("--sa_learning_rate", type=float, default=0.0004, help="Learning rate for Slot Attention")
-parser.add_argument("--sa_num_train_steps", type=int, default=200000, help="Number of training steps.")
+parser.add_argument("--sa_num_train_steps", type=int, default=400000, help="Number of training steps.")
 parser.add_argument("--sa_warmup_steps", type=int, default=10000, help="Number of warmup steps for the learning rate.")
 parser.add_argument("--sa_decay_rate", type=float, default=0.5, help="Rate for the learning rate decay.")
-parser.add_argument("--sa_decay_steps", type=int, default=200000, help="Number of steps for the learning rate decay.")
+parser.add_argument("--sa_decay_steps", type=int, default=100000, help="Number of steps for the learning rate decay.")
 
 args = parser.parse_args()
 if args.algorithm == 'dqn':
