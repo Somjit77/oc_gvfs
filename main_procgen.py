@@ -45,7 +45,7 @@ parser.add_argument("--use_off_policy", action='store_true', help="Off-policy Q-
 # Discovery
 parser.add_argument("--discovery", type=bool, default=False, help="Discovery of Cumulants")
 parser.add_argument("--unroll_steps", type=int, default=10, help="Unroll steps for meta-gradient")
-parser.add_argument("--use_concatanation", action='store_true', help="Use Concatanation for ESP")
+parser.add_argument("--use_concatanation", type=bool, default=True, help="Use Concatanation for ESP")
 # Slot Attention Args
 parser.add_argument("--use_slot_attention", type=bool, default=False, help="Use Slot Attention?")
 parser.add_argument("--sa_batch_size", type=int, default=16, help='Batch size for the model.')
