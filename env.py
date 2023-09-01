@@ -212,7 +212,7 @@ class MiniGrid:
             self.env = RGBImgPartialObsWrapper(self.env)
         self.num_actions = self.env.action_space.n
         
-    def reset(self):
+    def reset(self, random=False):
         state = np.asarray(self.env.reset()['image']/255.0, dtype=np.float32)
         return {'image': state, 'position': (0,0)} # Position not implemented
 
