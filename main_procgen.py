@@ -11,7 +11,7 @@ import numpy as np
 import json, argparse
 from pathlib import Path
 from agent_procgen import ReplayBuffer, DQN
-from env_procgen import CoinRun, , StarPilot
+from env_procgen import CoinRun, StarPilot
 from slot_attention.train_slots import train as train_slots
 import utils
 import os
