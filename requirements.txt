@@ -55,6 +55,7 @@ patsy==0.5.2+computecanada
 Pillow==7.2.0+computecanada
 plotnine==0.9.0
 protobuf==3.19.4+computecanada
+procgen==0.10.4+416821e.computecanada
 pyasn1==0.4.8+computecanada
 pyasn1-modules==0.2.8+computecanada
 pygame==2.1.2+computecanada
