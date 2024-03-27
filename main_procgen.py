@@ -23,7 +23,7 @@ parser.add_argument("--version", help='version', default='0.0')
 parser.add_argument("--runs", type=int, default=1, help="Number of Runs.")
 parser.add_argument("--level", type=int, default=0, help="Level in procgen")
 parser.add_argument("--train_episodes", type=int, default=5001, help="Number of train episodes.")
-parser.add_argument("--transfer_episodes", type=int, default=1500,
+parser.add_argument("--transfer_episodes", type=int, default=5001,
                     help="Number of episodes after which task transitions.")
 parser.add_argument("--batch_size", type=int, default=32, help="Size of the training batch")
 parser.add_argument("--target_period", type=float, default=100, help="How often to update the target net.")
