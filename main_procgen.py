@@ -21,7 +21,7 @@ parser.add_argument("--game", help='environment', default='CoinRun')  # Environm
 parser.add_argument("--algorithm", help='algorithm', default='sa_esp')  # dqn, gvf, hc_gvf, gvf_esp, hc_gvf_esp
 parser.add_argument("--version", help='version', default='0.0')
 parser.add_argument("--runs", type=int, default=1, help="Number of Runs.")
-parser.add_argument("--level", type=int, default=0, help="Level in procgen")
+parser.add_argument("--start_level", type=int, default=0, help="Start Level in procgen")
 parser.add_argument("--train_episodes", type=int, default=5001, help="Number of train episodes.")
 parser.add_argument("--transfer_episodes", type=int, default=5001,
                     help="Number of episodes after which task transitions.")
@@ -216,15 +216,15 @@ def run_loop(agent, environment, accumulator, seed, args):
 def train(args):
     for run in range(1): #parallel runs
         seed = args.runs + 1000
-        level = args.level
+        start_level = args.start_level
         if args.game == 'CollectObjects':
             env = CollectObjects(seed, breadth=7, length=7)
         elif 'MiniGrid' in args.game:
             env = MiniGrid(args.game, seed)
         elif args.game == 'CoinRun':
-            env = CoinRun(seed, level, 50)
+            env = CoinRun(seed, start_level, 50)
         elif args.game == 'StarPilot':
-            env = StarPilot(seed, level, 50)
+            env = StarPilot(seed, start_level, 50)
         else:
             raise Exception('Environment Not Defined')
         # Setting Numpy seed for random reward
