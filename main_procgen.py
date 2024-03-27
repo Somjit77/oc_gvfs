@@ -222,13 +222,9 @@ def train(args):
         elif 'MiniGrid' in args.game:
             env = MiniGrid(args.game, seed)
         elif args.game == 'CoinRun':
-            env = CoinRun(seed, level, 1)
-        elif args.game == 'BigFish':
-            env = BigFish(seed, level, 1)
-        elif args.game == 'Climber':
-            env = Climber(seed, level, 1)
+            env = CoinRun(seed, level, 50)
         elif args.game == 'StarPilot':
-            env = StarPilot(seed, level, 1)
+            env = StarPilot(seed, level, 50)
         else:
             raise Exception('Environment Not Defined')
         # Setting Numpy seed for random reward
