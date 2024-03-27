@@ -27,7 +27,7 @@ parser.add_argument("--transfer_episodes", type=int, default=5001,
                     help="Number of episodes after which task transitions.")
 parser.add_argument("--batch_size", type=int, default=32, help="Size of the training batch")
 parser.add_argument("--target_period", type=float, default=100, help="How often to update the target net.")
-parser.add_argument("--replay_capacity", type=int, default=10000, help="Capacity of the replay buffer.")
+parser.add_argument("--replay_capacity", type=int, default=100000, help="Capacity of the replay buffer.")
 parser.add_argument("--hidden_arch", type=int, default=[64, 32], help="Number of network hidden units.")
 parser.add_argument("--epsilon_begin", type=float, default=1., help="Initial epsilon-greedy exploration.")
 parser.add_argument("--epsilon_end", type=float, default=0.01, help="Final epsilon-greedy exploration.")
