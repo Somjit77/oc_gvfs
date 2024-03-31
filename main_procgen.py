@@ -45,7 +45,7 @@ parser.add_argument("--use_off_policy", action='store_true', help="Off-policy Q-
 # Discovery
 parser.add_argument("--discovery", type=bool, default=False, help="Discovery of Cumulants")
 parser.add_argument("--unroll_steps", type=int, default=10, help="Unroll steps for meta-gradient")
-parser.add_argument("--use_concatanation", type=bool, default=True, help="Use Concatanation for ESP")
+parser.add_argument("--use_concatanation", action='store_true', help="Use Concatanation for ESP")
 # Slot Attention Args
 parser.add_argument("--use_slot_attention", type=bool, default=False, help="Use Slot Attention?")
 parser.add_argument("--sa_batch_size", type=int, default=16, help='Batch size for the model.')
@@ -217,11 +217,7 @@ def train(args):
     for run in range(1): #parallel runs
         seed = args.runs + 1000
         start_level = args.start_level
-        if args.game == 'CollectObjects':
-            env = CollectObjects(seed, breadth=7, length=7)
-        elif 'MiniGrid' in args.game:
-            env = MiniGrid(args.game, seed)
-        elif args.game == 'CoinRun':
+        if args.game == 'CoinRun':
             env = CoinRun(seed, start_level, num_levels=50)
         elif args.game == 'StarPilot':
             env = StarPilot(seed, start_level, num_levels=50)
